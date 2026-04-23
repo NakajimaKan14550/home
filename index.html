@@ -5,162 +5,191 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHRONIX - Solutions by Category</title>
     <style>
-        /* CSS styles for layout and design */
+        :root {
+            --bg-gradient: radial-gradient(circle at center, #0d3d3d 0%, #051a1a 100%);
+            --accent-space: #d4af37;
+            --accent-ind: #10b981;
+            --text-white: #ffffff;
+            --table-bg: rgba(255, 255, 255, 0.95);
+        }
+
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-white);
+            min-height: 100vh;
         }
 
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            background-color: #fff;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 24px;
+        .header-logo {
+            padding: 20px 40px;
+            font-size: 32px;
             font-weight: bold;
-            color: #333;
+            letter-spacing: 2px;
         }
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-left: 20px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-        }
-
-        .solutions {
+        .main-container {
             display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
+            gap: 20px;
+            padding: 20px 40px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .solution-card {
-            width: 48%;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        .sector-card {
+            flex: 1;
+            min-width: 580px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
 
-        .solution-card h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
+        .space-card { border-top: 5px solid var(--accent-space); }
+        .ind-card { border-top: 5px solid var(--accent-ind); }
+
+        .visual-box {
+            height: 180px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+            position: relative;
         }
 
-        .solution-card p {
+        .space-visual { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=800'); }
+        .ind-visual { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800'); }
+
+        .visual-box h2 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+
+        .visual-box .label {
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            opacity: 0.8;
+        }
+
+        .content-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--table-bg);
+            color: #333;
+        }
+
+        .content-table th {
+            background: #eee;
+            text-align: left;
+            padding: 12px 15px;
+            font-size: 13px;
+            color: #666;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .content-table td {
+            padding: 15px;
             font-size: 14px;
-            line-height: 1.5;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
         }
 
-        .technologies, .brands {
-            margin-top: 20px;
-        }
+        .content-table tr:hover { background: #f0f7ff; cursor: pointer; }
 
-        .technologies ul, .brands ul {
-            list-style: none;
-            padding: 0;
-        }
+        .tag-link { color: #0066cc; text-decoration: none; font-weight: bold; }
+        .tag-link:hover { text-decoration: underline; }
 
-        .technologies li, .brands li {
-            margin-bottom: 5px;
-        }
-
-        footer {
-            background-color: #fff;
-            padding: 20px;
+        .footer-note {
             text-align: center;
-            margin-top: 20px;
+            padding: 30px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">CHRONIX</div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Solutions</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
 
-        <main>
-            <section class="solutions">
-                <div class="solution-card">
-                    <h3>SPACE-GRADE COMPONENTS</h3>
-                    <p>
-                        High-reliability components for space applications.
-                    </p>
-                    <div class="technologies">
-                        <h4>Technologies</h4>
-                        <ul>
-                            <li>FSO (FSO) の補正</li>
-                            <li>High-Reliability</li>
-                            <li>Radiation-Hardened</li>
-                        </ul>
-                    </div>
-                    <div class="brands">
-                        <h4>Brands</h4>
-                        <ul>
-                            <li>CEDRAT, ALPAO社</li>
-                            <li>IR Optics</li>
-                            <li>3DPlus</li>
-                        </ul>
-                    </div>
-                </div>
+    <div class="header-logo">CHRONIX</div>
 
-                <div class="solution-card">
-                    <h3>INDUSTRIAL IMAGING SOLUTIONS</h3>
-                    <p>
-                        Imaging solutions for industrial processes.
-                    </p>
-                    <div class="technologies">
-                        <h4>Technologies</h4>
-                        <ul>
-                            <li>High-Speed Liquid Lens</li>
-                            <li>Pyxalis Ultra-Fast Sensors</li>
-                            <li>Calumino AI Thermal Sensors</li>
-                            <li>Rugged Industrial Connectors</li>
-                        </ul>
-                    </div>
-                    <div class="brands">
-                        <h4>Brands</h4>
-                        <ul>
-                            <li>Varoaptic, ALPAO社</li>
-                            <li>AI Thermal Sensors</li>
-                            <li>Automated Quality Inspection</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-        </main>
+    <div class="main-container">
+        
+        <div class="sector-card space-card">
+            <div class="visual-box space-visual">
+                <div class="label">Space-Grade Components</div>
+                <h2>宇宙用コンポーネント</h2>
+            </div>
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th width="35%">解決課題 (Application)</th>
+                        <th width="35%">コア技術 (Technology)</th>
+                        <th width="30%">主要メーカー (Brand)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#" class="tag-link">光通信（FSO）の補正</a></td>
+                        <td>FSM、FM、補償光学</td>
+                        <td>CEDRAT、ALPAO社</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="tag-link">過酷環境下の接続維持</a></td>
+                        <td>耐放射線アナログ IC</td>
+                        <td>Nicomatic / STMicroelectronics</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="tag-link">耐放射線・振動・衝撃に強いカメラ</a></td>
+                        <td>ESA認定品、FSMGモジュール構造</td>
+                        <td>3DPlus</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-        <footer>
-            <p>&copy; CHRONIX Ltd., 2013 All Rights Reserved.</p>
-        </footer>
+        <div class="sector-card ind-card">
+            <div class="visual-box ind-visual">
+                <div class="label">Industrial Imaging Solutions</div>
+                <h2>産業用イメージング</h2>
+            </div>
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th width="35%">解決課題 (Application)</th>
+                        <th width="35%">コア技術 (Technology)</th>
+                        <th width="30%">主要メーカー (Brand)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#" class="tag-link">半導体検査2nmの歩留まり</a></td>
+                        <td>液体レンズ</td>
+                        <td>Varioptic、ALPAO社</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="tag-link">AI熱源・人流検知</a></td>
+                        <td>低解像度サーマルセンサ</td>
+                        <td>Calumino</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="tag-link">高速検査時のブレ・暗さ対策</a></td>
+                        <td>高速センサーによる画像静止技術</td>
+                        <td>Luxima</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
     </div>
+
+    <div class="footer-note">
+        Click to view specifications | &copy; CHRONIX Ltd.
+    </div>
+
 </body>
 </html>
