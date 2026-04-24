@@ -237,42 +237,92 @@
 
 </body>
 
-<section id="sensing-flow" style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 1100px; margin: 40px auto; padding: 20px;">
-    
-    <div style="text-align: center; margin-bottom: 30px;">
-        <h2 style="font-size: 24px; color: #333; border-bottom: 2px solid #004a99; display: inline-block; padding-bottom: 10px;">画像センシングの全体フローと専門ページ構成</h2>
-        <p style="color: #666; margin-top: 15px;">光の入口からAIの判断まで。各ステップの技術解説はこちらからご覧いただけます。</p>
-    </div>
-
-    <div style="position: relative; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-        <img src="opdesign.png" alt="画像センシング全体フローと専門ページ構成" style="width: 100%; display: block; height: auto;">
+<section style="padding: 60px 20px; background: #ffffff; text-align: center; font-family: 'Noto Sans JP', sans-serif;">
+    <div style="max-width: 1100px; margin: 0 auto;">
         
-        <a href="lens-basics.html" style="position: absolute; top: 25%; right: 2%; width: 15%; height: 5%; cursor: pointer;" title="レンズの基礎"></a>
-        <a href="wavelength-properties.html" style="position: absolute; top: 31%; right: 2%; width: 15%; height: 5%; cursor: pointer;" title="波長と光の性質"></a>
-        <a href="https://nakajimakan14550.github.io/varioptic/" style="position: absolute; top: 37%; right: 2%; width: 15%; height: 5%; cursor: pointer;" title="Varioptic"></a>
+        <h3 style="color: #0d4d4d; font-size: 24px; margin-bottom: 40px; font-weight: 700;">
+            詳細技術解説ページ
+        </h3>
 
-        <a href="ir-sensor-principle.html" style="position: absolute; top: 51%; right: 2%; width: 15%; height: 5%; cursor: pointer;" title="赤外線センサーの原理"></a>
-        <a href="camera-selection.html" style="position: absolute; top: 57%; right: 2%; width: 15%; height: 5%; cursor: pointer;" title="カメラの選び方"></a>
-        <a href="https://nakajimakan14550.github.io/home/" style="position: absolute; top: 63%; right: 2%; width: 15%; height: 5%; cursor: pointer;" title="宇宙用コンポーネント"></a>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+            
+            <a href="https://nakajimakan14550.github.io/light/" style="
+                display: inline-block;
+                padding: 15px 40px;
+                background: #fff;
+                color: #0d4d4d;
+                text-decoration: none;
+                font-weight: 700;
+                border: 2px solid #0d4d4d;
+                border-radius: 50px;
+                transition: all 0.3s ease;
+            " onmouseover="this.style.background='#0d4d4d'; this.style.color='#fff';" 
+               onmouseout="this.style.background='#fff'; this.style.color='#0d4d4d';">
+                レンズの基礎 <i class="fa-solid fa-link" style="margin-left: 8px; font-size: 0.8em;"></i>
+            </a>
 
-        <a href="ai-throughput.html" style="position: absolute; top: 78%; right: 2%; width: 15%; height: 5%; cursor: pointer;" title="AIスループット"></a>
-        <a href="use-cases.html" style="position: absolute; top: 84%; right: 2%; width: 15%; height: 5%; cursor: pointer;" title="導入事例"></a>
-        <a href="tech-implementation.html" style="position: absolute; top: 90%; right: 2%; width: 15%; height: 5%; cursor: pointer;" title="テクニカルガイド"></a>
+            <a href="https://nakajimakan14550.github.io/light/" style="
+                display: inline-block;
+                padding: 15px 40px;
+                background: #fff;
+                color: #0d4d4d;
+                text-decoration: none;
+                font-weight: 700;
+                border: 2px solid #0d4d4d;
+                border-radius: 50px;
+                transition: all 0.3s ease;
+            " onmouseover="this.style.background='#0d4d4d'; this.style.color='#fff';" 
+               onmouseout="this.style.background='#fff'; this.style.color='#0d4d4d';">
+                波長と光 <i class="fa-solid fa-link" style="margin-left: 8px; font-size: 0.8em;"></i>
+            </a>
+
+            <a href="https://nakajimakan14550.github.io/varioptic/" style="
+                display: inline-block;
+                padding: 15px 40px;
+                background: #d4af37;
+                color: #fff;
+                text-decoration: none;
+                font-weight: 700;
+                border: 2px solid #d4af37;
+                border-radius: 50px;
+                transition: all 0.3s ease;
+            " onmouseover="this.style.background='#fff'; this.style.color='#d4af37';" 
+               onmouseout="this.style.background='#d4af37'; this.style.color='#fff';">
+                Varioptic : 液体レンズの革命
+            </a>
+
+            <a href="ir-sensor-principle.html" style="
+                display: inline-block;
+                padding: 15px 40px;
+                background: #fff;
+                color: #64748b;
+                text-decoration: none;
+                font-weight: 700;
+                border: 2px solid #e2e8f0;
+                border-radius: 50px;
+                transition: all 0.3s ease;
+            " onmouseover="this.style.borderColor='#64748b'; this.style.color='#0d4d4d';" 
+               onmouseout="this.style.borderColor='#e2e8f0'; this.style.color='#64748b';">
+                赤外線センサー
+            </a>
+
+            <a href="ai-throughput.html" style="
+                display: inline-block;
+                padding: 15px 40px;
+                background: #fff;
+                color: #64748b;
+                text-decoration: none;
+                font-weight: 700;
+                border: 2px solid #e2e8f0;
+                border-radius: 50px;
+                transition: all 0.3s ease;
+            " onmouseover="this.style.borderColor='#64748b'; this.style.color='#0d4d4d';" 
+               onmouseout="this.style.borderColor='#e2e8f0'; this.style.color='#64748b';">
+                AI画像処理
+            </a>
+
+        </div>
     </div>
-
-    <div style="margin-top: 20px; display: none; flex-wrap: wrap; gap: 10px; justify-content: center;" class="mobile-links">
-        <style>
-            @media (max-width: 768px) { .mobile-links { display: flex !important; } }
-            .btn-link { padding: 8px 15px; background: #f0f4f8; border: 1px solid #004a99; color: #004a99; text-decoration: none; border-radius: 4px; font-size: 13px; }
-            .btn-link:hover { background: #004a99; color: white; }
-        </style>
-        <a href="lens-basics.html" class="btn-link">レンズの基礎</a>
-        <a href="wavelength-properties.html" class="btn-link">波長と光</a>
-        <a href="https://nakajimakan14550.github.io/varioptic/" class="btn-link">Varioptic</a>
-        <a href="ir-sensor-principle.html" class="btn-link">赤外線センサー</a>
-        <a href="ai-throughput.html" class="btn-link">AI画像処理</a>
-    </div>
-
 </section>
     
 
