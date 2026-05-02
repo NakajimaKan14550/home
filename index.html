@@ -3,345 +3,352 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Next Generation FA Image Processing | DX Solution</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Urbanist:wght@600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>CHRONIX - Solutions by Category</title>
     <style>
         :root {
-            --primary-green: #0d4d4d;
-            --light-green: #1e6b6b;
-            --accent-gold: #c5a059;
-            --white: #ffffff;
-            --bg-gray: #f8fafc;
-            --text-main: #1e293b;
-            --text-light: #64748b;
+            --bg-dark: #051a1a;
+            --accent-space: #d4af37; /* ゴールド */
+            --accent-ind: #10b981;  /* グリーン */
+            --text-white: #ffffff;
+            --table-bg: #f9fafb;
         }
 
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Noto Sans JP', sans-serif;
-            color: var(--text-main);
-            background-color: var(--bg-gray);
-            line-height: 1.6;
-        }
-
-        h1, h2, h3, .urbanist {
-            font-family: 'Urbanist', sans-serif;
-            letter-spacing: 0.05em;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* --- Hero Section --- */
-        header {
-            background: linear-gradient(135deg, var(--primary-green) 0%, #041f1f 100%);
-            color: var(--white);
-            padding: 100px 0 60px;
-            text-align: center;
-        }
-
-        .hero-tag {
-            color: var(--accent-gold);
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        /* --- Section Styling --- */
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 2.2rem;
-            color: var(--primary-green);
-            margin-bottom: 10px;
-        }
-
-        .section-title hr {
-            width: 80px;
-            height: 4px;
-            background: var(--accent-gold);
-            border: none;
-            margin: 0 auto;
-        }
-
-        /* --- Core Tech Layout --- */
-        .tech-layout {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-white);
             display: flex;
             flex-direction: column;
-            gap: 80px;
+            align-items: center;
+            min-height: 100vh;
         }
 
-        .tech-row {
+        /* ロゴエリア */
+        .logo-container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 40px 20px 20px;
+            box-sizing: border-box;
+        }
+
+        .logo-box {
+            background: white;
+            padding: 10px 25px;
+            display: inline-block;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #333;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+
+        /* メインコンテンツ */
+        .main-wrapper {
             display: flex;
-            align-items: center;
-            gap: 50px;
+            gap: 25px;
+            width: 100%;
+            max-width: 1240px;
+            padding: 20px;
+            box-sizing: border-box;
             flex-wrap: wrap;
         }
 
-        .tech-row.reverse {
-            flex-direction: row-reverse;
-        }
-
-        .tech-text {
+        .sector-card {
             flex: 1;
-            min-width: 300px;
-        }
-
-        .tech-image {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-        }
-
-        .clickable-img {
-            width: 100%;
-            max-width: 500px;
+            min-width: 580px;
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            cursor: zoom-in;
-            transition: transform 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.05);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        .clickable-img:hover {
-            transform: scale(1.02);
-        }
+        .space-card { border: 1px solid rgba(212, 175, 55, 0.3); }
+        .ind-card { border: 1px solid rgba(16, 185, 129, 0.3); }
 
-        /* --- Algorithm Cards --- */
-        .algo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .algo-card {
-            background: var(--white);
-            padding: 25px;
-            border-radius: 10px;
-            border-left: 4px solid var(--accent-gold);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .algo-card h4 {
-            margin: 0 0 10px 0;
-            color: var(--primary-green);
-            font-size: 1.1rem;
-        }
-
-        .algo-card p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        /* --- Use Case Section --- */
-        .use-case-section {
-            background: var(--primary-green);
-            color: var(--white);
-        }
-
-        .use-case-section .section-title h2 {
-            color: var(--white);
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .case-card {
-            background: rgba(255,255,255,0.05);
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .case-card i {
-            font-size: 2rem;
-            color: var(--accent-gold);
-            margin-bottom: 15px;
-        }
-
-        /* --- Modal (Click to Enlarge) --- */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(4, 31, 31, 0.95);
-            backdrop-filter: blur(5px);
+        /* ビジュアル部分 */
+        .visual-header {
+            height: 240px;
+            position: relative;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
-            align-items: center;
-            cursor: zoom-out;
+            background-size: cover;
+            background-position: center;
         }
 
-        .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 8px;
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        /* 宇宙背景 */
+        .space-visual {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1000');
         }
 
-        /* --- Footer --- */
-        footer {
-            background: #041f1f;
-            color: rgba(255,255,255,0.6);
-            padding: 40px 0;
+        /* 産業背景 */
+        .ind-visual {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1000');
+        }
+
+        .label {
+            font-size: 13px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .visual-header h2 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        /* テーブル部分 */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--table-bg);
+            color: #333;
+        }
+
+        .data-table th {
+            background: #eeeeee;
+            padding: 15px 20px;
+            text-align: left;
+            font-size: 13px;
+            color: #666;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .data-table td {
+            padding: 18px 20px;
+            font-size: 14px;
+            border-bottom: 1px solid #eee;
+            vertical-align: middle;
+        }
+
+        /* リンクのスタイル */
+        .link-text {
+            color: #0055aa;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .link-text:hover {
+            text-decoration: underline;
+        }
+
+        .space-card td:first-child .link-text { color: #8e7421; }
+        .ind-card td:first-child .link-text { color: #065f46; }
+
+        /* フッターボタン */
+        .spec-link {
             text-align: center;
-            font-size: 0.9rem;
+            padding: 15px;
+            font-size: 13px;
+            color: #666;
+            background: #fff;
+            border-top: 1px solid #eee;
+            cursor: pointer;
         }
 
+        @media (max-width: 1200px) {
+            .sector-card { min-width: 100%; }
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="container">
-        <span class="hero-tag urbanist">Factory Automation & AI</span>
-        <h1 style="font-size: 3rem; margin: 0;">三位一体で実現する<br>高度検査ソリューション</h1>
+    <div class="logo-container">
+        <div class="logo-box">CHRONIX</div>
     </div>
-</header>
 
-<section>
-    <div class="container">
-        <div class="tech-layout">
+    <div class="main-wrapper">
+        
+        <div class="sector-card space-card">
+            <div class="visual-header space-visual">
+                <div class="label" style="color: var(--accent-space);">Space-Grade Components</div>
+                <h2>宇宙用コンポーネント</h2>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th width="38%">解決課題 (Application)</th>
+                        <th width="32%">コア技術 (Technology)</th>
+                        <th width="30%">主要メーカー (Brand)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#" class="link-text">光通信（FSO）の補正</a></td>
+                        <td>FSM、FM、補償光学</td>
+                        <td>CEDRAT、ALPAO社</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="link-text">過酷環境下の接続維持</a></td>
+                        <td>耐放射線アナログ IC</td>
+                        <td>Nicomatic / STMicroelectronics</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="link-text">耐放射線・振動・衝撃に強いカメラ</a></td>
+                        <td>ESA認定品、FSMG構造</td>
+                        <td>3DPlus</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="spec-link">Click to view specifications</div>
+        </div>
+
+        <div class="sector-card ind-card">
+            <div class="visual-header ind-visual">
+                <div class="label" style="color: var(--accent-ind);">Industrial Imaging Solutions</div>
+                <h2>産業用イメージング</h2>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th width="38%">解決課題 (Application)</th>
+                        <th width="32%">コア技術 (Technology)</th>
+                        <th width="30%">主要メーカー (Brand)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="https://nakajimakan14550.github.io/varioptic/" target="_blank" class="link-text">半導体検査2nmの歩留まり</a></td>
+                        <td>液体レンズ</td>
+                        <td>Varioptic、ALPAO社</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="link-text">AI熱源・人流検知</a></td>
+                        <td>低解像度サーマルセンサ</td>
+                        <td>Calumino</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="link-text">高速検査時のブレ・暗さ対策</a></td>
+                        <td>高速センサー・画像静止技術</td>
+                        <td>Luxima</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="spec-link">Click to view specifications</div>
+        </div>
+
+    </div>
+
+</body>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画像センシングポータル</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* 簡単なリセットCSS */
+        body { margin: 0; padding: 0; background-color: #f4f7f6; }
+    </style>
+</head>
+<body>
+
+<section style="padding: 40px 20px; text-align: center; background: #fdfdfd;">
+    <div style="max-width: 1100px; margin: 0 auto; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        
+        <img src="opdesign.png" alt="画像センシングの全体フローと専門ページ構成" usemap="#sensing-map" style="width: 100%; height: auto; display: block;">
+
+        <map name="sensing-map">
+            <area shape="rect" coords="780,180,950,225" alt="レンズの基礎" href="https://nakajimakan14550.github.io/light/" title="レンズの基礎へ">
+        </map>
+    </div>
+</section>
+
+<section style="padding: 60px 20px; background: #ffffff; text-align: center; font-family: 'Noto Sans JP', sans-serif;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+        
+        <h3 style="color: #0d4d4d; font-size: 24px; margin-bottom: 40px; font-weight: 700;">
+            詳細技術解説ページ
+        </h3>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
             
-            <!-- 1. Algorithm Section -->
-            <div class="tech-row">
-                <div class="tech-text">
-                    <div class="section-title" style="text-align: left;">
-                        <h2 style="font-size: 1.8rem;">1. 画像処理アルゴリズム</h2>
-                        <hr style="margin: 0;">
-                    </div>
-                    <p>AI以前からの数学的アプローチ。高速かつ論理的で、FA現場の「前処理」や「寸法計測」の主役です。</p>
-                    
-                    <div class="algo-grid">
-                        <div class="algo-card">
-                            <h4>二値化</h4>
-                            <p>画像を白と黒の2色に分け、背景と検査対象をはっきり分離します。</p>
-                        </div>
-                        <div class="algo-card">
-                            <h4>エッジ検出</h4>
-                            <p>輝度が急激に変化する場所（境界線）を探し、製品の輪郭を抽出します。</p>
-                        </div>
-                        <div class="algo-card">
-                            <h4>フィルタリング</h4>
-                            <p>ノイズを除去し、後のAIやアルゴリズムが判定しやすい状態を作ります。</p>
-                        </div>
-                        <div class="algo-card">
-                            <h4>幾何学計測</h4>
-                            <p>抽出したエッジから「幅」「角度」「真円度」などを0.01mm単位で算出します。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tech-image">
-                    <img src="gazo.png" alt="画像処理アルゴリズムイメージ" class="clickable-img" onclick="openModal(this.src)">
-                    <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 10px;"><i class="fa-solid fa-magnifying-glass-plus"></i> クリックで拡大</p>
-                </div>
-            </div>
+            <a href="https://nakajimakan14550.github.io/light/" style="
+                display: inline-block;
+                padding: 15px 40px;
+                background: #fff;
+                color: #0d4d4d;
+                text-decoration: none;
+                font-weight: 700;
+                border: 2px solid #0d4d4d;
+                border-radius: 50px;
+                transition: all 0.3s ease;
+            " onmouseover="this.style.background='#0d4d4d'; this.style.color='#fff';" 
+               onmouseout="this.style.background='#fff'; this.style.color='#0d4d4d';">
+                レンズの基礎 <i class="fa-solid fa-link" style="margin-left: 8px; font-size: 0.8em;"></i>
+            </a>
 
-            <!-- 2. AI Section -->
-            <div class="tech-row reverse">
-                <div class="tech-text">
-                    <div class="section-title" style="text-align: left;">
-                        <h2 style="font-size: 1.8rem;">2. AI：欠陥検知・物体認識</h2>
-                        <hr style="margin: 0;">
-                    </div>
-                    <p>アルゴリズムだけでは対応できない「個体差」や「曖昧な基準」を解決。多くの学習データに基づき、人間のような感覚的な判断を自動化します。</p>
-                    
-                    <div class="algo-card" style="margin-top: 20px;">
-                        <h4 style="color: var(--accent-gold);"><i class="fa-solid fa-check-double"></i> 欠陥検知 (Defect Detection)</h4>
-                        <p>表面のわずかな傷、汚れ、色ムラを発見。従来の閾値設定が困難なケースに威力を発揮します。</p>
-                    </div>
-                    <div class="algo-card" style="margin-top: 15px;">
-                        <h4 style="color: var(--accent-gold);"><i class="fa-solid fa-object-group"></i> 物体認識 (Object Recognition)</h4>
-                        <p>画面内のどこに、何が、いくつあるかを特定。部品の実装向きやラベル位置を瞬時に判別します。</p>
-                    </div>
-                </div>
-                <div class="tech-image">
-                    <img src="kenpin.png" alt="AI欠陥検知イメージ" class="clickable-img" onclick="openModal(this.src)">
-                    <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 10px;"><i class="fa-solid fa-magnifying-glass-plus"></i> クリックで拡大</p>
-                </div>
-            </div>
+            <a href="https://nakajimakan14550.github.io/wave/" style="
+                display: inline-block;
+                padding: 15px 40px;
+                background: #fff;
+                color: #0d4d4d;
+                text-decoration: none;
+                font-weight: 700;
+                border: 2px solid #0d4d4d;
+                border-radius: 50px;
+                transition: all 0.3s ease;
+            " onmouseover="this.style.background='#0d4d4d'; this.style.color='#fff';" 
+               onmouseout="this.style.background='#fff'; this.style.color='#0d4d4d';">
+                波長と光 <i class="fa-solid fa-link" style="margin-left: 8px; font-size: 0.8em;"></i>
+            </a>
+
+            <a href="https://nakajimakan14550.github.io/varioptic/" style="
+                display: inline-block;
+                padding: 15px 40px;
+                background: #d4af37;
+                color: #fff;
+                text-decoration: none;
+                font-weight: 700;
+                border: 2px solid #d4af37;
+                border-radius: 50px;
+                transition: all 0.3s ease;
+            " onmouseover="this.style.background='#fff'; this.style.color='#d4af37';" 
+               onmouseout="this.style.background='#d4af37'; this.style.color='#fff';">
+                Varioptic : 液体レンズの革命
+            </a>
+
+            <a href="https://nakajimakan14550.github.io/censer/" style="
+                display: inline-block;
+                padding: 15px 40px;
+                background: #fff;
+                color: #64748b;
+                text-decoration: none;
+                font-weight: 700;
+                border: 2px solid #e2e8f0;
+                border-radius: 50px;
+                transition: all 0.3s ease;
+            " onmouseover="this.style.borderColor='#64748b'; this.style.color='#0d4d4d';" 
+               onmouseout="this.style.borderColor='#e2e8f0'; this.style.color='#64748b';">
+                イメージセンサー（撮像素子）
+            </a>
+
+            <a href="https://nakajimakan14550.github.io/ai" style="
+                display: inline-block;
+                padding: 15px 40px;
+                background: #fff;
+                color: #64748b;
+                text-decoration: none;
+                font-weight: 700;
+                border: 2px solid #e2e8f0;
+                border-radius: 50px;
+                transition: all 0.3s ease;
+            " onmouseover="this.style.borderColor='#64748b'; this.style.color='#0d4d4d';" 
+               onmouseout="this.style.borderColor='#e2e8f0'; this.style.color='#64748b';">
+                AI画像処理
+            </a>
 
         </div>
     </div>
 </section>
-
-<!-- Section: Use Cases -->
-<section class="use-case-section">
-    <div class="container">
-        <div class="section-title">
-            <h2>Industry Use Cases</h2>
-            <hr>
-        </div>
-        <div class="grid-3">
-            <div class="case-card">
-                <i class="fa-solid fa-truck-fast"></i>
-                <h3 style="color: var(--accent-gold);">物流</h3>
-                <p style="font-size: 0.9rem;">荷物の形状認識、高速OCRによるラベル読み取りエラー防止。</p>
-            </div>
-            <div class="case-card">
-                <i class="fa-solid fa-microchip"></i>
-                <h3 style="color: var(--accent-gold);">半導体</h3>
-                <p style="font-size: 0.9rem;">ウェハ上の微細欠陥検査、サブミクロン単位のアライメント補正。</p>
-            </div>
-            <div class="case-card">
-                <i class="fa-solid fa-file-medical"></i>
-                <h3 style="color: var(--accent-gold);">医療</h3>
-                <p style="font-size: 0.9rem;">錠剤や包装の24時間監視、細胞画像の一次スクリーニング支援。</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<footer>
-    <div class="container">
-        <p class="urbanist" style="font-weight: 800; color: var(--accent-gold); letter-spacing: 2px;">DX PLUMBER</p>
-        <p>&copy; 2026 Advanced Automation Solutions</p>
-    </div>
-</footer>
-
-<!-- Modal Structure -->
-<div id="imageModal" class="modal" onclick="closeModal()">
-    <img class="modal-content" id="imgFull">
-</div>
-
-<script>
-    function openModal(src) {
-        document.getElementById("imageModal").style.display = "flex";
-        document.getElementById("imgFull").src = src;
-    }
-
-    function closeModal() {
-        document.getElementById("imageModal").style.display = "none";
-    }
-
-    // Escキーで閉じる
-    document.addEventListener('keydown', function(event) {
-        if (event.key === "Escape") {
-            closeModal();
-        }
-    });
-</script>
 
 </body>
 </html>
