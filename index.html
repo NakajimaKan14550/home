@@ -273,119 +273,85 @@
 </head>
 <body>
 
-<section style="padding: 40px 20px; text-align: center; background: #fdfdfd;">
-    <div style="max-width: 1100px; margin: 0 auto; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-        
-        <img src="opdesign.png" alt="画像センシングの全体フローと専門ページ構成" usemap="#sensing-map" style="width: 100%; height: auto; display: block;">
-
-        <map name="sensing-map">
-            <area shape="rect" coords="780,180,950,225" alt="レンズの基礎" href="https://nakajimakan14550.github.io/light/" title="レンズの基礎へ">
-        </map>
-    </div>
-</section>
-
-<section style="padding: 60px 20px; background: #ffffff; text-align: center; font-family: 'Noto Sans JP', sans-serif;">
+<section style="padding: 80px 20px; background: #f8fafc; font-family: 'Noto Sans JP', sans-serif;">
     <div style="max-width: 1100px; margin: 0 auto;">
         
-        <h3 style="color: #0d4d4d; font-size: 24px; margin-bottom: 40px; font-weight: 700;">
-            詳細技術解説ページ
-        </h3>
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h3 style="color: #0f172a; font-size: 28px; font-weight: 900; letter-spacing: 0.05em; margin-bottom: 15px;">
+                TECHNICAL INSIGHTS
+            </h3>
+            <p style="color: #64748b; font-size: 16px;">マシンビジョンとDX自動化を支えるコア技術解説</p>
+            <div style="width: 60px; height: 4px; background: #0d4d4d; margin: 20px auto;"></div>
+        </div>
 
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
             
-            <a href="https://nakajimakan14550.github.io/light/" style="
-                display: inline-block;
-                padding: 15px 40px;
-                background: #fff;
-                color: #0d4d4d;
-                text-decoration: none;
-                font-weight: 700;
-                border: 2px solid #0d4d4d;
-                border-radius: 50px;
-                transition: all 0.3s ease;
-            " onmouseover="this.style.background='#0d4d4d'; this.style.color='#fff';" 
-               onmouseout="this.style.background='#fff'; this.style.color='#0d4d4d';">
-                レンズの基礎 <i class="fa-solid fa-link" style="margin-left: 8px; font-size: 0.8em;"></i>
+            <!-- カード 1: 光学の基礎 -->
+            <a href="https://nakajimakan14550.github.io/light/" style="text-decoration: none; group;">
+                <div style="background: #fff; padding: 30px; border-radius: 15px; border: 1px solid #e2e8f0; height: 100%; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);" 
+                     onmouseover="this.style.borderColor='#0d4d4d'; this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 15px -3px rgba(0,0,0,0.1)';" 
+                     onmouseout="this.style.borderColor='#e2e8f0'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px -1px rgba(0,0,0,0.1)';">
+                    <span style="color: #0d4d4d; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;">Basics</span>
+                    <h4 style="color: #0f172a; font-size: 18px; margin: 10px 0; font-weight: 700;">レンズの基礎</h4>
+                    <p style="color: #64748b; font-size: 14px; line-height: 1.6;">焦点距離、F値、被写界深度など、画像処理の入り口となる光学パラメーターを解説。</p>
+                </div>
             </a>
 
-            <a href="https://nakajimakan14550.github.io/wave/" style="
-                display: inline-block;
-                padding: 15px 40px;
-                background: #fff;
-                color: #0d4d4d;
-                text-decoration: none;
-                font-weight: 700;
-                border: 2px solid #0d4d4d;
-                border-radius: 50px;
-                transition: all 0.3s ease;
-            " onmouseover="this.style.background='#0d4d4d'; this.style.color='#fff';" 
-               onmouseout="this.style.background='#fff'; this.style.color='#0d4d4d';">
-                波長と光 <i class="fa-solid fa-link" style="margin-left: 8px; font-size: 0.8em;"></i>
+            <!-- カード 2: 波長 -->
+            <a href="https://nakajimakan14550.github.io/wave/" style="text-decoration: none;">
+                <div style="background: #fff; padding: 30px; border-radius: 15px; border: 1px solid #e2e8f0; height: 100%; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);"
+                     onmouseover="this.style.borderColor='#0d4d4d'; this.style.transform='translateY(-5px)';" 
+                     onmouseout="this.style.borderColor='#e2e8f0'; this.style.transform='translateY(0)';">
+                    <span style="color: #0d4d4d; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;">Physics</span>
+                    <h4 style="color: #0f172a; font-size: 18px; margin: 10px 0; font-weight: 700;">波長と光</h4>
+                    <p style="color: #64748b; font-size: 14px; line-height: 1.6;">可視光から赤外線まで。材質に合わせた最適なライティング選定の理論。</p>
+                </div>
             </a>
 
-            <a href="https://nakajimakan14550.github.io/varioptic/" style="
-                display: inline-block;
-                padding: 15px 40px;
-                background: #d4af37;
-                color: #fff;
-                text-decoration: none;
-                font-weight: 700;
-                border: 2px solid #d4af37;
-                border-radius: 50px;
-                transition: all 0.3s ease;
-            " onmouseover="this.style.background='#fff'; this.style.color='#d4af37';" 
-               onmouseout="this.style.background='#d4af37'; this.style.color='#fff';">
-                Varioptic : 液体レンズの革命
+            <!-- カード 3: 液体レンズ (革命) -->
+            <a href="https://nakajimakan14550.github.io/varioptic/" style="text-decoration: none;">
+                <div style="background: #0d4d4d; padding: 30px; border-radius: 15px; border: 1px solid #0d4d4d; height: 100%; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);"
+                     onmouseover="this.style.background='#0a3a3a'; this.style.transform='translateY(-5px)';" 
+                     onmouseout="this.style.background='#0d4d4d'; this.style.transform='translateY(0)';">
+                    <span style="color: #d4af37; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;">Innovation</span>
+                    <h4 style="color: #fff; font-size: 18px; margin: 10px 0; font-weight: 700;">Varioptic : 液体レンズの革命</h4>
+                    <p style="color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6;">可動部なしで超高速オートフォーカスを実現。多品種混流ラインのDX化の要。</p>
+                </div>
             </a>
 
-            <a href="https://nakajimakan14550.github.io/censer/" style="
-                display: inline-block;
-                padding: 15px 40px;
-                background: #fff;
-                color: #64748b;
-                text-decoration: none;
-                font-weight: 700;
-                border: 2px solid #e2e8f0;
-                border-radius: 50px;
-                transition: all 0.3s ease;
-            " onmouseover="this.style.borderColor='#64748b'; this.style.color='#0d4d4d';" 
-               onmouseout="this.style.borderColor='#e2e8f0'; this.style.color='#64748b';">
-                イメージセンサー（撮像素子）
+            <!-- カード 4: センサー -->
+            <a href="https://nakajimakan14550.github.io/censer/" style="text-decoration: none;">
+                <div style="background: #fff; padding: 30px; border-radius: 15px; border: 1px solid #e2e8f0; height: 100%; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);"
+                     onmouseover="this.style.borderColor='#0d4d4d'; this.style.transform='translateY(-5px)';" 
+                     onmouseout="this.style.borderColor='#e2e8f0'; this.style.transform='translateY(0)';">
+                    <span style="color: #0d4d4d; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;">Hardware</span>
+                    <h4 style="color: #0f172a; font-size: 18px; margin: 10px 0; font-weight: 700;">イメージセンサー</h4>
+                    <p style="color: #64748b; font-size: 14px; line-height: 1.6;">CMOS/CCDの構造から、シャッター方式による画像ブレの違いまで。</p>
+                </div>
             </a>
 
-            <a href="https://nakajimakan14550.github.io/ai" style="
-                display: inline-block;
-                padding: 15px 40px;
-                background: #fff;
-                color: #64748b;
-                text-decoration: none;
-                font-weight: 700;
-                border: 2px solid #e2e8f0;
-                border-radius: 50px;
-                transition: all 0.3s ease;
-            " onmouseover="this.style.borderColor='#64748b'; this.style.color='#0d4d4d';" 
-               onmouseout="this.style.borderColor='#e2e8f0'; this.style.color='#64748b';">
-                AI画像処理
+            <!-- カード 5: AI -->
+            <a href="https://nakajimakan14550.github.io/ai" style="text-decoration: none;">
+                <div style="background: #fff; padding: 30px; border-radius: 15px; border: 1px solid #e2e8f0; height: 100%; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);"
+                     onmouseover="this.style.borderColor='#0d4d4d'; this.style.transform='translateY(-5px)';" 
+                     onmouseout="this.style.borderColor='#e2e8f0'; this.style.transform='translateY(0)';">
+                    <span style="color: #0d4d4d; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;">Software</span>
+                    <h4 style="color: #0f172a; font-size: 18px; margin: 10px 0; font-weight: 700;">AI画像処理</h4>
+                    <p style="color: #64748b; font-size: 14px; line-height: 1.6;">ルールベースでは限界があった非定型欠陥を、Deep Learningでいかに攻略するか。</p>
+                </div>
             </a>
 
-              <a href="https://nakajimakan14550.github.io/mvision" style="
-                display: inline-block;
-                padding: 15px 40px;
-                background: #fff;
-                color: #64748b;
-                text-decoration: none;
-                font-weight: 700;
-                border: 2px solid #e2e8f0;
-                border-radius: 50px;
-                transition: all 0.3s ease;
-            " onmouseover="this.style.borderColor='#64748b'; this.style.color='#0d4d4d';" 
-               onmouseout="this.style.borderColor='#e2e8f0'; this.style.color='#64748b';">
-                HIKROBOT価格とAI /OPT Engineering 光学精度:新しい検査革命
+            <!-- カード 6: 検査革命 -->
+            <a href="https://nakajimakan14550.github.io/mvision" style="text-decoration: none;">
+                <div style="background: linear-gradient(135deg, #fff 0%, #f1f5f9 100%); padding: 30px; border-radius: 15px; border: 2px dashed #0d4d4d; height: 100%; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);"
+                     onmouseover="this.style.transform='translateY(-5px)'; this.style.background='#fff';" 
+                     onmouseout="this.style.transform='translateY(0)'; this.style.background='linear-gradient(135deg, #fff 0%, #f1f5f9 100%)';">
+                    <span style="color: #0d4d4d; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;">New Paradigm</span>
+                    <h4 style="color: #0f172a; font-size: 18px; margin: 10px 0; font-weight: 700;">HIK / OPT 検査革命</h4>
+                    <p style="color: #64748b; font-size: 14px; line-height: 1.6;">圧倒的ROIのHIKROBOTと、極限精度のOPT Engineering。二つの軸が生む自動化の最適解。</p>
+                </div>
             </a>
 
         </div>
     </div>
 </section>
-
-</body>
-</html>
