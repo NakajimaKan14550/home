@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHRONIX - Solutions by Category</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --bg-dark: #051a1a;
@@ -19,45 +20,67 @@
             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
             background-color: var(--bg-dark);
             color: var(--text-white);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
         }
 
-        /* ロゴエリア */
-        .logo-container {
-            width: 100%;
-            max-width: 1200px;
-            padding: 40px 20px 20px;
-            box-sizing: border-box;
+        /* ヘッダー：左右分離を確実に実行 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(5, 26, 26, 0.95); /* 背景色に合わせて少し透過 */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .logo-box {
             background: white;
-            padding: 10px 25px;
-            display: inline-block;
+            padding: 8px 20px;
             border-radius: 4px;
-            font-weight: bold;
+            font-weight: 800;
             color: #333;
-            font-size: 24px;
+            font-size: 22px;
             letter-spacing: 1px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        /* メインコンテンツ */
+        .ai-button {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #0d4d4d;
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .ai-button:hover {
+            background: #146b6b;
+            transform: translateY(-2px);
+        }
+
+        /* メインコンテンツのレイアウト修正 */
         .main-wrapper {
             display: flex;
             gap: 25px;
             width: 100%;
             max-width: 1240px;
-            padding: 20px;
+            padding: 40px 20px;
+            margin: 0 auto;
             box-sizing: border-box;
             flex-wrap: wrap;
         }
 
         .sector-card {
             flex: 1;
-            min-width: 580px;
+            min-width: 500px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
             overflow: hidden;
@@ -67,11 +90,10 @@
         .space-card { border: 1px solid rgba(212, 175, 55, 0.3); }
         .ind-card { border: 1px solid rgba(16, 185, 129, 0.3); }
 
-        /* ビジュアル部分 */
         .visual-header {
-            height: 240px;
+            height: 200px;
             position: relative;
-            padding: 40px;
+            padding: 30px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -79,116 +101,39 @@
             background-position: center;
         }
 
-        /* 宇宙背景 */
-        .space-visual {
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1000');
-        }
+        .space-visual { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1000'); }
+        .ind-visual { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1000'); }
 
-        /* 産業背景 */
-        .ind-visual {
-            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1000');
-        }
+        .label { font-size: 12px; letter-spacing: 1px; margin-bottom: 5px; text-transform: uppercase; }
+        .visual-header h2 { margin: 0; font-size: 28px; font-weight: 700; }
 
-        .label {
-            font-size: 13px;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            opacity: 0.9;
-        }
+        .data-table { width: 100%; border-collapse: collapse; background: var(--table-bg); color: #333; }
+        .data-table th { background: #eeeeee; padding: 12px 15px; text-align: left; font-size: 12px; color: #666; border-bottom: 1px solid #ddd; }
+        .data-table td { padding: 15px; font-size: 14px; border-bottom: 1px solid #eee; }
 
-        .visual-header h2 {
-            margin: 0;
-            font-size: 32px;
-            font-weight: 700;
-        }
+        .link-text { color: #0055aa; text-decoration: none; font-weight: bold; }
+        .spec-link { text-align: center; padding: 12px; font-size: 12px; color: #666; background: #fff; border-top: 1px solid #eee; }
 
-        /* テーブル部分 */
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--table-bg);
-            color: #333;
-        }
-
-        .data-table th {
-            background: #eeeeee;
-            padding: 15px 20px;
-            text-align: left;
-            font-size: 13px;
-            color: #666;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .data-table td {
-            padding: 18px 20px;
-            font-size: 14px;
-            border-bottom: 1px solid #eee;
-            vertical-align: middle;
-        }
-
-        /* リンクのスタイル */
-        .link-text {
-            color: #0055aa;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .link-text:hover {
-            text-decoration: underline;
-        }
-
-        .space-card td:first-child .link-text { color: #8e7421; }
-        .ind-card td:first-child .link-text { color: #065f46; }
-
-        /* フッターボタン */
-        .spec-link {
-            text-align: center;
-            padding: 15px;
-            font-size: 13px;
-            color: #666;
-            background: #fff;
-            border-top: 1px solid #eee;
-            cursor: pointer;
-        }
-
-        @media (max-width: 1200px) {
+        @media (max-width: 1100px) {
             .sector-card { min-width: 100%; }
         }
     </style>
 </head>
 <body>
 
-<body>
-
-    <!-- ヘッダー：左にロゴ、右にボタンを配置 -->
-    <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background: transparent; position: relative; z-index: 1000; max-width: 1400px; margin: 0 auto;">
-        
-        <!-- 左端：CHRONIXロゴ -->
-        <div class="logo-box" style="background: #ffffff; padding: 10px 25px; border-radius: 4px; color: #333; font-weight: 800; letter-spacing: 1px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); flex-shrink: 0;">
-            CHRONIX
-        </div>
-
-        <!-- 右端：AI製品回答システムボタン -->
-        <nav style="flex-shrink: 0;">
-            <a href="https://script.google.com/macros/s/AKfycbwJ_jxa5hofpl5z1C1ZxrfrkGhqSf-dQLoRhFFW6EcKwjqoUH0J20LIYMyPPVySXri7/exec" 
-               target="_blank" 
-               style="text-decoration: none; display: flex; align-items: center; gap: 8px; background: #0d4d4d; color: #fff; padding: 12px 25px; border-radius: 50px; font-size: 14px; font-weight: 700; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);"
-               onmouseover="this.style.background='#146b6b'; this.style.transform='translateY(-2px)';"
-               onmouseout="this.style.background='#0d4d4d'; this.style.transform='translateY(0)';"
-            >
-                <span style="font-size: 18px;">🤖</span>
-                AI製品回答システム
-                <i class="fas fa-external-link-alt" style="font-size: 11px; margin-left: 4px; opacity: 0.8;"></i>
+    <!-- ヘッダー -->
+    <header>
+        <div class="logo-box">CHRONIX</div>
+        <nav>
+            <a href="https://script.google.com/macros/s/AKfycbwJ_jxa5hofpl5z1C1ZxrfrkGhqSf-dQLoRhFFW6EcKwjqoUH0J20LIYMyPPVySXri7/exec" target="_blank" class="ai-button">
+                <span>🤖</span> AI製品回答システム <i class="fas fa-external-link-alt" style="font-size: 10px;"></i>
             </a>
         </nav>
     </header>
 
+    <!-- メインセクション：宇宙・産業 -->
     <div class="main-wrapper">
-        <!-- ここから宇宙用コンポーネントなどのコンテンツ -->
-
-    <div class="main-wrapper">
-        
+        <!-- 宇宙カード -->
         <div class="sector-card space-card">
             <div class="visual-header space-visual">
                 <div class="label" style="color: var(--accent-space);">Space-Grade Components</div>
@@ -196,33 +141,18 @@
             </div>
             <table class="data-table">
                 <thead>
-                    <tr>
-                        <th width="38%">解決課題 (Application)</th>
-                        <th width="32%">コア技術 (Technology)</th>
-                        <th width="30%">主要メーカー (Brand)</th>
-                    </tr>
+                    <tr><th>解決課題</th><th>コア技術</th><th>ブランド</th></tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><a href="#" class="link-text">光通信（FSO）の補正</a></td>
-                        <td>FSM（高速振動ミラー）、DM（可変ミラー）、補償光学</td>
-                        <td>CEDRAT、ALPAO社</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#" class="link-text">過酷環境下の接続維持</a></td>
-                        <td>耐放射線アナログ IC</td>
-                        <td>Nicomatic / STMicroelectronics</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#" class="link-text">耐放射線・振動・衝撃に強いカメラ</a></td>
-                        <td>ESA認定品、FPGA (Field Programmable Gate Array)、SiP (System in Package)構造</td>
-                        <td>3DPlus</td>
-                    </tr>
+                    <tr><td><a href="#" class="link-text">光通信の補正</a></td><td>FSM、DM、補償光学</td><td>CEDRAT、ALPAO</td></tr>
+                    <tr><td><a href="#" class="link-text">過酷環境下の接続</a></td><td>耐放射線アナログ IC</td><td>STMicro</td></tr>
+                    <tr><td><a href="#" class="link-text">耐環境カメラ</a></td><td>ESA認定品、FPGA</td><td>3DPlus</td></tr>
                 </tbody>
             </table>
             <div class="spec-link">Click to view specifications</div>
         </div>
 
+        <!-- 産業カード -->
         <div class="sector-card ind-card">
             <div class="visual-header ind-visual">
                 <div class="label" style="color: var(--accent-ind);">Industrial Imaging Solutions</div>
@@ -230,195 +160,66 @@
             </div>
             <table class="data-table">
                 <thead>
-                    <tr>
-                        <th width="38%">解決課題 (Application)</th>
-                        <th width="32%">コア技術 (Technology)</th>
-                        <th width="30%">主要メーカー (Brand)</th>
-                    </tr>
+                    <tr><th>解決課題</th><th>コア技術</th><th>ブランド</th></tr>
                 </thead>
                 <tbody>
-                    <!-- 修正後のテーブル行 -->
-<tr>
-    <td>
-        <a href="#" class="link-text">
-            <strong>物理的制約の克服（歪み・露出不足）</strong>
-        </a>
-    </td>
-    <td>
-        テレセントリック光学 ＆ 超高感度CMOS
-    </td>
-    <td>
-        Opto Engineering / Hikrobot
-    </td>
-</tr>
-                    <tr>
-                        <td><a href="https://nakajimakan14550.github.io/varioptic/" target="_blank" class="link-text">半導体検査2nmの歩留まり</a></td>
-                        <td>液体レンズ</td>
-                        <td>Varioptic</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#" class="link-text">AI熱源・人流検知</a></td>
-                        <td>低解像度サーマルセンサ</td>
-                        <td>Calumino</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#" class="link-text">高速検査時のブレ・暗さ対策</a></td>
-                        <td>高速センサー・画像静止技術</td>
-                        <td>Luxima</td>
-                    </tr>
-
-
-
-                    
+                    <tr><td><a href="#" class="link-text">物理的制約の克服</a></td><td>テレセントリック、高感度CMOS</td><td>Hikrobot</td></tr>
+                    <tr><td><a href="https://nakajimakan14550.github.io/varioptic/" target="_blank" class="link-text">半導体検査2nmの歩留まり</a></td><td>液体レンズ</td><td>Varioptic</td></tr>
+                    <tr><td><a href="#" class="link-text">AI熱源・人流検知</a></td><td>低解像度サーマル</td><td>Calumino</td></tr>
                 </tbody>
             </table>
             <div class="spec-link">Click to view specifications</div>
         </div>
-
     </div>
+
+    <!-- TECHNICAL INSIGHTS セクション -->
+    <section style="padding: 60px 20px; background: #f8fafc; font-family: 'Noto Sans JP', sans-serif; width: 100%; box-sizing: border-box;">
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h3 style="color: #0f172a; font-size: 28px; font-weight: 900; letter-spacing: 0.05em; margin: 0 0 10px;">TECHNICAL INSIGHTS</h3>
+                <p style="color: #64748b; font-size: 16px; margin: 0;">マシンビジョンとDX自動化を支えるコア技術解説</p>
+                <div style="width: 60px; height: 4px; background: #0d4d4d; margin: 20px auto;"></div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+                <a href="https://nakajimakan14550.github.io/light/" style="text-decoration: none;">
+                    <div style="background: #fff; padding: 25px; border-radius: 12px; border: 1px solid #e2e8f0; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                        <span style="color: #0d4d4d; font-size: 11px; font-weight: 800; text-transform: uppercase;">Basics</span>
+                        <h4 style="color: #0f172a; font-size: 18px; margin: 10px 0;">レンズの基礎</h4>
+                        <p style="color: #64748b; font-size: 14px; line-height: 1.5;">焦点距離、F値など光学パラメーターを解説。</p>
+                    </div>
+                </a>
+                <a href="https://nakajimakan14550.github.io/varioptic/" style="text-decoration: none;">
+                    <div style="background: #0d4d4d; padding: 25px; border-radius: 12px; transition: 0.3s;">
+                        <span style="color: #d4af37; font-size: 11px; font-weight: 800;">Innovation</span>
+                        <h4 style="color: #fff; font-size: 18px; margin: 10px 0;">液体レンズの革命</h4>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.5;">超高速オートフォーカスによるDX化の要。</p>
+                    </div>
+                </a>
+                <a href="https://nakajimakan14550.github.io/mvision" style="text-decoration: none;">
+                    <div style="background: #fff; padding: 25px; border-radius: 12px; border: 2px dashed #0d4d4d; transition: 0.3s;">
+                        <span style="color: #0d4d4d; font-size: 11px; font-weight: 800;">New Paradigm</span>
+                        <h4 style="color: #0f172a; font-size: 18px; margin: 10px 0;">HIK / OPT 検査革命</h4>
+                        <p style="color: #64748b; font-size: 14px; line-height: 1.5;">圧倒的ROIと極限精度が生む自動化の最適解。</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- トレンドレポート -->
+        <div style="padding: 60px 0 0;">
+            <hr style="border: none; border-top: 1px solid #e2e8f0; width: 60%; margin: 0 auto 40px;">
+            <div style="background-color: #fff; padding: 40px 20px; border-radius: 20px; margin: 0 auto; max-width: 1000px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                <h3 style="color: #1e293b; font-size: 22px; margin-bottom: 25px; font-weight: 800;">定期配信トレンドレポート・サイト</h3>
+                <a href="https://nakajimakan14550.github.io/trend/" style="text-decoration: none; display: block; position: relative; overflow: hidden; border-radius: 15px;">
+                    <img src="trend.png" alt="Trend Report" style="width: 100%; height: auto; display: block;">
+                    <div style="position: absolute; bottom: 20px; right: 20px;">
+                        <span style="background: #d4af37; color: #fff; padding: 10px 25px; border-radius: 50px; font-weight: bold; font-size: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">レポート一覧を見る</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
 
 </body>
-
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>画像センシングポータル</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* 簡単なリセットCSS */
-        body { margin: 0; padding: 0; background-color: #f4f7f6; }
-    </style>
-</head>
-<body>
-
-<section style="padding: 80px 20px; background: #f8fafc; font-family: 'Noto Sans JP', sans-serif;">
-    <div style="max-width: 1100px; margin: 0 auto;">
-        
-        <div style="text-align: center; margin-bottom: 50px;">
-            <h3 style="color: #0f172a; font-size: 28px; font-weight: 900; letter-spacing: 0.05em; margin-bottom: 15px;">
-                TECHNICAL INSIGHTS
-            </h3>
-            <p style="color: #64748b; font-size: 16px;">マシンビジョンとDX自動化を支えるコア技術解説</p>
-            <div style="width: 60px; height: 4px; background: #0d4d4d; margin: 20px auto;"></div>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
-            
-            <!-- カード 1: 光学の基礎 -->
-            <a href="https://nakajimakan14550.github.io/light/" style="text-decoration: none; group;">
-                <div style="background: #fff; padding: 30px; border-radius: 15px; border: 1px solid #e2e8f0; height: 100%; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);" 
-                     onmouseover="this.style.borderColor='#0d4d4d'; this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 15px -3px rgba(0,0,0,0.1)';" 
-                     onmouseout="this.style.borderColor='#e2e8f0'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px -1px rgba(0,0,0,0.1)';">
-                    <span style="color: #0d4d4d; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;">Basics</span>
-                    <h4 style="color: #0f172a; font-size: 18px; margin: 10px 0; font-weight: 700;">レンズの基礎</h4>
-                    <p style="color: #64748b; font-size: 14px; line-height: 1.6;">焦点距離、F値、被写界深度など、画像処理の入り口となる光学パラメーターを解説。</p>
-                </div>
-            </a>
-
-            <!-- カード 2: 波長 -->
-            <a href="https://nakajimakan14550.github.io/wave/" style="text-decoration: none;">
-                <div style="background: #fff; padding: 30px; border-radius: 15px; border: 1px solid #e2e8f0; height: 100%; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);"
-                     onmouseover="this.style.borderColor='#0d4d4d'; this.style.transform='translateY(-5px)';" 
-                     onmouseout="this.style.borderColor='#e2e8f0'; this.style.transform='translateY(0)';">
-                    <span style="color: #0d4d4d; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;">Physics</span>
-                    <h4 style="color: #0f172a; font-size: 18px; margin: 10px 0; font-weight: 700;">波長と光</h4>
-                    <p style="color: #64748b; font-size: 14px; line-height: 1.6;">可視光から赤外線まで。材質に合わせた最適なライティング選定の理論。</p>
-                </div>
-            </a>
-
-            <!-- カード 3: 液体レンズ (革命) -->
-            <a href="https://nakajimakan14550.github.io/varioptic/" style="text-decoration: none;">
-                <div style="background: #0d4d4d; padding: 30px; border-radius: 15px; border: 1px solid #0d4d4d; height: 100%; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);"
-                     onmouseover="this.style.background='#0a3a3a'; this.style.transform='translateY(-5px)';" 
-                     onmouseout="this.style.background='#0d4d4d'; this.style.transform='translateY(0)';">
-                    <span style="color: #d4af37; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;">Innovation</span>
-                    <h4 style="color: #fff; font-size: 18px; margin: 10px 0; font-weight: 700;">Varioptic : 液体レンズの革命</h4>
-                    <p style="color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6;">可動部なしで超高速オートフォーカスを実現。多品種混流ラインのDX化の要。</p>
-                </div>
-            </a>
-
-            <!-- カード 4: センサー -->
-            <a href="https://nakajimakan14550.github.io/censer/" style="text-decoration: none;">
-                <div style="background: #fff; padding: 30px; border-radius: 15px; border: 1px solid #e2e8f0; height: 100%; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);"
-                     onmouseover="this.style.borderColor='#0d4d4d'; this.style.transform='translateY(-5px)';" 
-                     onmouseout="this.style.borderColor='#e2e8f0'; this.style.transform='translateY(0)';">
-                    <span style="color: #0d4d4d; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;">Hardware</span>
-                    <h4 style="color: #0f172a; font-size: 18px; margin: 10px 0; font-weight: 700;">イメージセンサー</h4>
-                    <p style="color: #64748b; font-size: 14px; line-height: 1.6;">CMOS/CCDの構造から、シャッター方式による画像ブレの違いまで。</p>
-                </div>
-            </a>
-
-            <!-- カード 5: AI -->
-            <a href="https://nakajimakan14550.github.io/ai" style="text-decoration: none;">
-                <div style="background: #fff; padding: 30px; border-radius: 15px; border: 1px solid #e2e8f0; height: 100%; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);"
-                     onmouseover="this.style.borderColor='#0d4d4d'; this.style.transform='translateY(-5px)';" 
-                     onmouseout="this.style.borderColor='#e2e8f0'; this.style.transform='translateY(0)';">
-                    <span style="color: #0d4d4d; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;">Software</span>
-                    <h4 style="color: #0f172a; font-size: 18px; margin: 10px 0; font-weight: 700;">AI画像処理</h4>
-                    <p style="color: #64748b; font-size: 14px; line-height: 1.6;">ルールベースでは限界があった非定型欠陥を、Deep Learningでいかに攻略するか。</p>
-                </div>
-            </a>
-
-            <!-- カード 6: 検査革命 -->
-            <a href="https://nakajimakan14550.github.io/mvision" style="text-decoration: none;">
-                <div style="background: linear-gradient(135deg, #fff 0%, #f1f5f9 100%); padding: 30px; border-radius: 15px; border: 2px dashed #0d4d4d; height: 100%; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);"
-                     onmouseover="this.style.transform='translateY(-5px)'; this.style.background='#fff';" 
-                     onmouseout="this.style.transform='translateY(0)'; this.style.background='linear-gradient(135deg, #fff 0%, #f1f5f9 100%)';">
-                    <span style="color: #0d4d4d; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;">New Paradigm</span>
-                    <h4 style="color: #0f172a; font-size: 18px; margin: 10px 0; font-weight: 700;">HIK / OPT 検査革命</h4>
-                    <p style="color: #64748b; font-size: 14px; line-height: 1.6;">圧倒的ROIのHIKROBOTと、極限精度のOPT Engineering。二つの軸が生む自動化の最適解。</p>
-                </div>
-            </a>
-
-        </div>
-    </div>
-
-
-<!-- カード 6（グリッドの最後） -->
-<a href="https://nakajimakan14550.github.io/mvision" style="text-decoration: none;">
-    <div style="background: linear-gradient(135deg, #fff 0%, #f1f5f9 100%); padding: 30px; border-radius: 15px; border: 2px dashed #0d4d4d; height: 100%; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);"
-         onmouseover="this.style.transform='translateY(-5px)'; this.style.background='#fff';" 
-         onmouseout="this.style.transform='translateY(0)'; this.style.background='linear-gradient(135deg, #fff 0%, #f1f5f9 100%)';">
-        <span style="color: #0d4d4d; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;">New Paradigm</span>
-        <h4 style="color: #0f172a; font-size: 18px; margin: 10px 0; font-weight: 700;">HIK / OPT 検査革命</h4>
-        <p style="color: #64748b; font-size: 14px; line-height: 1.6;">圧倒的ROIのHIKROBOTと、極限精度のOPT Engineering。二つの軸が生む自動化の最適解。</p>
-    </div>
-</a>
-
-<!-- グリッドの終了（</div>の位置に合わせて調整してください） -->
-</div> 
-
-<!-- 境界セクション：ここから追加 -->
-<div style="padding: 80px 0 40px;">
-    <hr style="border: none; border-top: 1px solid #e2e8f0; width: 60%; margin: 0 auto 50px;">
-    
-    <!-- 背景色を少し変えたコンテナで包むことで「別物」感を出す -->
-    <div style="background-color: #f8fafc; padding: 60px 20px; border-radius: 30px; margin: 0 auto; max-width: 1100px;">
-        <h3 style="text-align: center; color: #1e293b; font-size: 24px; margin-bottom: 30px; font-weight: 800;">定期配信トレンドレポート・サイト</h3>
-        
-        <!-- トレンドレポートへの大型リンク -->
-        <div style="text-align: center;">
-            <a href="https://nakajimakan14550.github.io/trend/" style="text-decoration: none; display: inline-block; width: 100%;">
-                <div style="position: relative; border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); box-shadow: 0 10px 25px rgba(0,0,0,0.1);"
-                     onmouseover="this.style.transform='scale(1.01)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.2)';"
-                     onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.1)';">
-                    
-                    <img src="trend.png" alt="定期配信トレンドレポート・サイト" style="width: 100%; display: block; height: auto;">
-                    
-                    <!-- オーバーレイ -->
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.6)); padding: 60px 20px 30px; text-align: right;">
-                        <span style="background: #d4af37; color: #fff; padding: 12px 30px; border-radius: 50px; font-weight: bold; font-size: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: inline-flex; align-items: center;">
-                            レポート一覧を見る <i class="fas fa-external-link-alt" style="margin-left: 10px;"></i>
-                        </span>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-</div>
-    
-</section>
-    
-</section>
+</html>
