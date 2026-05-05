@@ -159,9 +159,29 @@
 </head>
 <body>
 
-    <div class="logo-container">
-        <div class="logo-box">CHRONIX</div>
-    </div>
+  <!-- ここから差し替え：ロゴとボタンを並べるヘッダー -->
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background: transparent; position: sticky; top: 0; z-index: 1000;">
+        
+        <!-- 左側：ロゴ -->
+        <div class="logo-box" style="background: #ffffff; padding: 10px 25px; border-radius: 4px; color: #333; font-weight: 800; letter-spacing: 1px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            CHRONIX
+        </div>
+
+        <!-- 右側：AIシステムへのリンク -->
+        <nav>
+            <a href="https://script.google.com/macros/s/AKfycbwJ_jxa5hofpl5z1C1ZxrfrkGhqSf-dQLoRhFFW6EcKwjqoUH0J20LIYMyPPVySXri7/exec" 
+               target="_blank" 
+               style="text-decoration: none; display: flex; align-items: center; gap: 8px; background: #0d4d4d; color: #fff; padding: 10px 22px; border-radius: 50px; font-size: 14px; font-weight: 700; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);"
+               onmouseover="this.style.background='#146b6b'; this.style.transform='translateY(-2px)';"
+               onmouseout="this.style.background='#0d4d4d'; this.style.transform='translateY(0)';"
+            >
+                <span style="font-size: 18px;">🤖</span>
+                AI製品回答システム
+                <i class="fas fa-external-link-alt" style="font-size: 11px; margin-left: 4px; opacity: 0.8;"></i>
+            </a>
+        </nav>
+    </header>
+    <!-- ここまで差し替え -->
 
     <div class="main-wrapper">
         
